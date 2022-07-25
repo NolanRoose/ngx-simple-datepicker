@@ -49,9 +49,10 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public value?: Date;
   public displayedValue?: string;
   public disabled = false;
+  public touched = false;
 
   public onChange!: (date: string) => void;
-  public onTouched!: (date: any) => void;
+  public onTouched!: () => void;
 
   public dateH = DateHelper;
   public formH = FormHelper;
@@ -89,7 +90,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     };
   }
 
-  public registerOnTouched(fn: (date: any) => void): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
@@ -126,7 +127,18 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   }
 
   public onFocus(value: boolean): void {
+    if (value) {
+      this.markAsTouched();
+    }
+
     this.hasFocus = value;
+  }
+
+  private markAsTouched() {
+    if (!this.touched) {
+      this.onTouched();
+      this.touched = true;
+    }
   }
 
   private createDatepicker(): void {
