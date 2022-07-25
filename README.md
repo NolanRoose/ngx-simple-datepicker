@@ -81,4 +81,5 @@ For the moment, the datepicker is only internationalized for the French language
 - [ ] Add more documentation
 - [ ] Add configuration service
 - [ ] Add contributions guidelines
+- [ ] Add real ci cd pipeline
 
