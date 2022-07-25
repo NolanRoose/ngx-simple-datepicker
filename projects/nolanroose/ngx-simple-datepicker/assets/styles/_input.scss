@@ -1,0 +1,77 @@
+@import "variables";
+
+.ng-simple-datepicker {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  padding-inline: $dpi-input-padding-inline;
+
+  margin-top: $dpi-margin-top;
+  margin-bottom: $dpi-margin-bottom;
+
+  border-radius: $dpi-input-border-radius !important;
+  border-color: $dpi-input-border-color;
+  border-style: $dpi-input-border-style;
+  border-width: $dpi-input-border-width;
+  box-sizing: border-box;
+
+  background-color: $dpi-input-background-color;
+
+  &.focus {
+    border-color: $dpi-input-border-color-focus !important;
+  }
+
+  &.input-valid {
+    border-color: $dpi-input-border-color-valid !important;
+  }
+
+  &.input-invalid {
+    border-color: $dpi-input-border-color-invalid !important;
+  }
+
+  &.input-in-form-invalid {
+    border-color: $dpi-input-border-color-in-form-invalid !important;
+  }
+
+  .datepicker-input {
+    flex-grow: 1;
+
+    height: $dpi-input-height;
+    max-height: $dpi-input-height;
+    min-height: $dpi-input-height;
+
+    padding-block: $dpi-input-padding-block;
+
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+
+    font-size: $dpi-input-font-size;
+    color: $dpi-input-font-color;
+    font-family: $dpi-input-font-family;
+    font-weight: $dpi-input-font-weight;
+    font-style: $dpi-input-font-style;
+
+    &:focus-visible, &:focus {
+      border: none !important;
+      outline: none !important;
+    }
+
+    &::placeholder {
+      color: $dpi-input-placeholder-font-color;
+      opacity: $dpi-input-placeholder-opacity;
+    }
+  }
+
+  .datepicker-open-button {
+    flex-shrink: 1;
+    font-size: $dpi-button-font-size;
+    color: $dpi-button-font-color;
+    margin-left: $dpi-button-margin-left;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+}

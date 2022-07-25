@@ -1,0 +1,87 @@
+// Color
+
+$black-color: #000000 !default;
+$white-color: #FFFFFF !default;
+$grey-1: lighten($black-color, 25%) !default;
+$grey-2: #2E3A3C !default;
+$grey-3: #92A2A5 !default;
+$grey-4: #C9D1D2 !default;
+$grey-5: #E4E8E8 !default;
+$grey-6: darken($grey-5, 10%) !default;
+$grey-7: darken($grey-5, 25%) !default;
+$valid-color: #18B46E !default;
+$invalid-color: #DA851E !default;
+$form-invalid-color: #E84855 !default;
+$primary-color: #1892B4 !default;
+
+// Input Variables
+$dpi-input-height: 38px !default;
+$dpi-input-width: 100% !default;
+
+$dpi-input-background-color: transparent !default;
+
+$dpi-margin-top: 8px !default;
+$dpi-margin-bottom: 8px !default;
+$dpi-input-padding-inline: 21px !default;
+$dpi-input-padding-block: 8px !default;
+
+$dpi-input-border-radius: 90px !default;
+$dpi-input-border-color: $grey-4 !default;
+$dpi-input-border-width: 1px !default;
+$dpi-input-border-style: solid !default;
+$dpi-input-border-color-valid: $valid-color !default;
+$dpi-input-border-color-invalid: $invalid-color !default;
+$dpi-input-border-color-in-form-invalid: $form-invalid-color !default;
+$dpi-input-border-color-focus: $primary-color !default;
+
+$dpi-input-font-color: $black-color !default;
+$dpi-input-font-size: 16px !default;
+$dpi-input-font-family: "Open Sans", sans-serif !default;
+$dpi-input-font-weight: normal !default;
+$dpi-input-font-style: normal !default;
+
+$dpi-input-placeholder-font-color: $grey-3 !default;
+$dpi-input-placeholder-opacity: .5;
+
+// Button Variables
+$dpi-button-font-size: 20px !default;
+$dpi-button-font-color: $primary-color !default;
+$dpi-button-margin-left: 10px !default;
+
+// Datepicker Variables
+$dp-font-family: "Open Sans", sans-serif !default;
+$dp-font-family-header: "Ubuntu", sans-serif !default;
+$dp-font-size-normal: $dpi-button-font-size !default;
+$dp-font-size: $dpi-input-font-size !default;
+$dp-font-size-header: $dpi-input-font-size !default;
+$dp-font-weight: 300 !default;
+$dp-font-size-small: 14px !default;
+$dp-font-weight-semibold: 400 !default;
+$dp-font-weight-bold: 500 !default;
+
+$dp-header-height: $dpi-input-height !default;
+$dp-background-color: $white-color !default;
+$dp-border-color: $grey-6 !default;
+$dp-border-radius: 4px !default;
+$dp-border-radius-small: 2px !default;
+$dp-line-height-base: 1.5 !default;
+
+$dp-dropdown-offset: 4px !default;
+$dp-dropdown-shadow: 0 2px 3px rgba($black-color, 0.1), 0 0 0 1px rgba($black-color, 0.1) !default;
+$dp-dropdown-z: 20 !default;
+
+$dp-title-background-color: $grey-5 !default;
+
+$dp-cell-size-base: 2.25rem !default;
+$dp-cell-focus-background-color: current !default;
+$dp-cell-prevnext-color: $grey-4 !default !default;
+$dp-cell-disabled-color: $grey-6 !default;
+$dp-cell-selected-background-color: $primary-color !default;
+$dp-cell-selected-color: $white-color !default;
+$dp-cell-selected-font-weight: 600 !default;
+$dp-cell-today-background-color: scale-color($primary-color, $lightness: 90%) !default;
+$dp-cell-today-color: $black-color !default;
+$dp-cell-highlighted-background-color: $grey-5 !default;
+$dp-week-color: $grey-7 !default;
+
+$dp-footer-background-color: $grey-5 !default;

@@ -1,0 +1,38 @@
+@import 'vanillajs-datepicker/mixins';
+
+@mixin dp-button {
+  .button {
+    /***
+     Place style adjustment for date picker's buttons here, if needed
+     ***/
+
+    .datepicker-header & {
+      @include dp-header-button-common;
+
+      height: $dp-header-height;
+      text-transform: uppercase;
+      background-color: $white-color;
+      color: $primary-color;
+      font-family: $dp-font-family-header;
+      font-size: $dp-font-size-header;
+
+      &:hover {
+        background-color: scale-color($primary-color, $lightness: 90%);
+      }
+
+      /***
+       Place style adjustment specific to the header buttons here, if needed
+       ***/
+    }
+
+    .datepicker-footer & {
+      @include dp-footer-button-common;
+
+      /***
+       Place style adjustment specific to the footer buttons here, if needed
+       ***/
+    }
+  }
+}
+
+@import 'vanillajs-datepicker/datepicker';

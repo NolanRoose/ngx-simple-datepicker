@@ -1,0 +1,49 @@
+$icomoon-font-family: "simple-datepicker" !default;
+
+$ngx-sdp-angle-left: "\e900";
+$ngx-sdp-angle-right: "\e901";
+$ngx-sdp-calendar: "\e902";
+
+@font-face {
+  font-family: "simple-datepicker";
+  src:  url('./#{$icomoon-font-family}.eot?xmcjbd');
+  src:  url('./#{$icomoon-font-family}.eot?xmcjbd#iefix') format('embedded-opentype'),
+    url('./#{$icomoon-font-family}.ttf?xmcjbd') format('truetype'),
+    url('./#{$icomoon-font-family}.woff?xmcjbd') format('woff'),
+    url('./#{$icomoon-font-family}.svg?xmcjbd##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ngx-sdp-angle-right {
+  &:before {
+    content: $ngx-sdp-angle-right;
+  }
+}
+.ngx-sdp-angle-left {
+  &:before {
+    content: $ngx-sdp-angle-left;
+  }
+}
+.ngx-sdp-calendar {
+  &:before {
+    content: $ngx-sdp-calendar;
+  }
+}
+
