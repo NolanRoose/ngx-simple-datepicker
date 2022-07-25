@@ -1,7 +1,7 @@
-<div class="ng-simple-datepicker" #dpContainer [class]="formH.inputClasses(form, inputKey, formGlobalError)" [class.focus]="hasFocus">
+<div class="ng-simple-datepicker" [class]="formH.inputClasses(form, inputKey, formGlobalError)" [class.focus]="hasFocus">
   <input
     [id]="inputKey"
-    class="datepicker-input"
+    class="datepicker-input-text"
     type="text"
     [mask]="mask"
     [ngModel]="displayedValue"
@@ -12,6 +12,9 @@
     [disabled]="disabled"
     ngxOnlyNumber
   />
+  <div class="datepicker-container" #dpContainer>
+    <input id="datepicker" type="text" name="datepicker" class="datepicker-input" readonly />
+  </div>
   <div (click)="openDatepicker()" class="datepicker-open-button">
     <i class="ngx-sdp-calendar"></i>
   </div>
