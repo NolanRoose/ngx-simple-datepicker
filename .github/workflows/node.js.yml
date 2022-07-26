@@ -3,9 +3,7 @@
 
 name: NgxSimpleDatepicker CI/CD
 
-on:
-  pull_request:
-    branches: [ "**" ]
+on: [pull_request]
 jobs:
   ci:
     name: CI NgxSimpleDatepicker

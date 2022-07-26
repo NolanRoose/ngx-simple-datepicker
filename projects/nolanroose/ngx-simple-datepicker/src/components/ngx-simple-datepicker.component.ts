@@ -63,6 +63,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
   constructor(private readonly maskPipe: MaskPipe) {
     Object.assign(Datepicker.locales, fr, es);
+    this.logger.info('NgxSimpleDatepickerComponent created');
   }
 
   public ngAfterViewInit(): void {
