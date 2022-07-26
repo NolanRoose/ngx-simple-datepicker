@@ -3,7 +3,6 @@ import {Datepicker} from 'vanillajs-datepicker';
 import {AbstractControl, ControlValueAccessor, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator} from '@angular/forms';
 import {DateHelper} from '../helpers/date.helper';
 import {FormHelper} from '../helpers/form.helper';
-import {Logger} from '../helpers/logger';
 import fr from '../locale/fr';
 import {MaskPipe} from 'ngx-mask';
 import es from '../locale/es';
@@ -26,8 +25,6 @@ import es from '../locale/es';
   encapsulation: ViewEncapsulation.None
 })
 export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Validator, AfterViewInit, OnDestroy {
-  private logger = Logger.get('NgxSimpleDatepickerComponent', 'info');
-
   @ViewChild('dpContainer')
   public dpContainer!: ElementRef;
 
@@ -79,7 +76,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
       const dt = this.dpContainer.nativeElement.getElementsByTagName('input')[0];
       dt.removeEventListener('changeDate', this.onDateChange.bind(this));
     } catch (e) {
-      this.logger.error('Error: ', e);
+      console.error('Error: ', e);
     }
   }
 
@@ -165,7 +162,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         prevArrow: '<i class="ngx-sdp-angle-left"></i>'
       });
     } catch (e) {
-      this.logger.error('Error: ', e);
+      console.error('Error: ', e);
     }
   }
 }
