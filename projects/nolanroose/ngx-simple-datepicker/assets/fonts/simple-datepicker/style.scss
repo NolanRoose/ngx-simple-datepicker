@@ -16,7 +16,7 @@ $ngx-sdp-calendar: "\e902";
   font-display: block;
 }
 
-i {
+i.ngx-sdp {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: '#{$icomoon-font-family}' !important;
   speak: never;
