@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-datepicker",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve demo",
@@ -34,7 +34,6 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
-    "loglevel": "^1.8.0",
     "luxon": "^3.0.1",
     "ngx-mask": "^14.0.3",
     "rxjs": "~7.5.0",
@@ -52,7 +51,6 @@
     "@angular/cli": "~14.0.5",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
-    "@types/loglevel": "^1.6.3",
     "@types/luxon": "^3.0.0",
     "@types/vanillajs-datepicker": "^1.2.1",
     "@typescript-eslint/eslint-plugin": "5.29.0",
