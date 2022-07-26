@@ -161,8 +161,8 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         daysOfWeekHighlighted: [0, 6],
         todayHighlight: true,
         updateOnBlur: false,
-        nextArrow: '<i class="ngx-sdp-angle-right"></i>',
-        prevArrow: '<i class="ngx-sdp-angle-left"></i>'
+        nextArrow: '<i class="ngx-sdp ngx-sdp-angle-right"></i>',
+        prevArrow: '<i class="ngx-sdp ngx-sdp-angle-left"></i>'
       });
     } catch (e) {
       console.error('Error: ', e);
