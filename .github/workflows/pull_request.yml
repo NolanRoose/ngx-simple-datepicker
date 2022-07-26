@@ -1,28 +1,29 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: NgxSimpleDatepicker CI/CD
+name: NgxSimpleDatepicker CI
 
-on:
-  pull_request:
-    branches: [ "**" ]
+on: [pull_request]
 jobs:
   ci:
-    name: CI NgxSimpleDatepicker
+    name: NgxSimpleDatepicker CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout branch
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - name: Install dependencies with yarn
-    - run: yarn install
+      run: yarn install
     - name: Run ci NgxSimpleDatepicker
-    - run: yarn run ci:lib
+      run: yarn run ci:lib
     - name: Build production NgxSimpleDatepicker
-    - run: yarn run build:lib:prod
+      run: yarn run build:lib:prod
