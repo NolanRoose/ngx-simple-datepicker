@@ -6,6 +6,7 @@ import {FormHelper} from '../helpers/form.helper';
 import {Logger} from '../helpers/logger';
 import fr from '../locale/fr';
 import {MaskPipe} from 'ngx-mask';
+import es from '../locale/es';
 
 @Component({
   selector: 'ngx-simple-datepicker',
@@ -43,6 +44,8 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public formGlobalError = false;
 
   @Input()
+  public language = 'fr';
+
   public mask = 'd0/M0/0000';
 
   public datepicker?: Datepicker;
@@ -59,7 +62,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public hasFocus = false;
 
   constructor(private readonly maskPipe: MaskPipe) {
-    Object.assign(Datepicker.locales, fr);
+    Object.assign(Datepicker.locales, fr, es);
   }
 
   public ngAfterViewInit(): void {
@@ -152,7 +155,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         autohide: true,
         showOnClick: false,
         showOnFocus: false,
-        language: 'fr',
+        language: this.language,
         orientation: 'bottom right',
         format: 'dd/mm/yyyy',
         daysOfWeekHighlighted: [0, 6],

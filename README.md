@@ -1,6 +1,6 @@
 # NgxSimpleDatepicker
 
-NgxSimpleDatePicker is a custom FromControl with validation, which
+NgxSimpleDatePicker is a custom FormControl with validation, which
 uses [vanillajs-datepicker](https://github.com/mymth/vanillajs-datepicker) for the selection by calendar part, and which
 uses [ngx-mask](https://github.com/JsDaddy/ngx-mask) for the free input part.
 
@@ -72,7 +72,7 @@ Import the variable file before the import of default theme:
 
 ## Internationalization
 
-For the moment, the datepicker is only internationalized for the French language.
+For the moment, the datepicker is only internationalized for the French, English, Spanish languages.
 
 ## Roadmap
 
