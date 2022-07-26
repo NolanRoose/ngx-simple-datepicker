@@ -6,7 +6,11 @@
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
-    "@angular/forms": "^14.0.0"
+    "@angular/forms": "^14.0.0",
+    "loglevel": "^1.8.0",
+    "luxon": "^3.0.1",
+    "ngx-mask": "^14.0.3",
+    "vanillajs-datepicker": "^1.2.0"
   },
   "exports": {
     "./assets/styles/default-theme": {
@@ -14,16 +18,7 @@
     }
   },
   "dependencies": {
-    "loglevel": "^1.8.0",
-    "luxon": "^3.0.1",
-    "ngx-mask": "^14.0.3",
-    "vanillajs-datepicker": "^1.2.0",
     "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@types/loglevel": "^1.6.3",
-    "@types/luxon": "^3.0.0",
-    "@types/vanillajs-datepicker": "^1.2.1"
   },
   "license": "MIT",
   "repository": {
