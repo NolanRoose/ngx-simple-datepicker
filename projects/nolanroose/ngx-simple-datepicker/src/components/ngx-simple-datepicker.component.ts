@@ -3,7 +3,6 @@ import {Datepicker} from 'vanillajs-datepicker';
 import {AbstractControl, ControlValueAccessor, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator} from '@angular/forms';
 import {DateHelper} from '../helpers/date.helper';
 import {FormHelper} from '../helpers/form.helper';
-import {Logger} from '../helpers/logger';
 import fr from '../locale/fr';
 import {MaskPipe} from 'ngx-mask';
 import es from '../locale/es';
@@ -26,8 +25,6 @@ import es from '../locale/es';
   encapsulation: ViewEncapsulation.None
 })
 export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Validator, AfterViewInit, OnDestroy {
-  private logger = Logger.get('NgxSimpleDatepickerComponent', 'info');
-
   @ViewChild('dpContainer')
   public dpContainer!: ElementRef;
 
@@ -41,7 +38,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public placeholder?: string = '';
 
   @Input()
-  public formGlobalError = false;
+  public formGlobalError = false; // to handle the case in which the entire form is in error and apply a style accordingly
 
   @Input()
   public language = 'fr';
@@ -79,7 +76,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
       const dt = this.dpContainer.nativeElement.getElementsByTagName('input')[0];
       dt.removeEventListener('changeDate', this.onDateChange.bind(this));
     } catch (e) {
-      this.logger.error('Error: ', e);
+      console.error('Error: ', e);
     }
   }
 
@@ -120,6 +117,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   }
 
   public openDatepicker(): void {
+    if (this.disabled) {
+      return;
+    }
     this.datepicker?.setDate(this.value);
     this.datepicker?.show();
   }
@@ -165,7 +165,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         prevArrow: '<i class="ngx-sdp-angle-left"></i>'
       });
     } catch (e) {
-      this.logger.error('Error: ', e);
+      console.error('Error: ', e);
     }
   }
 }

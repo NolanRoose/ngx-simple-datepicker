@@ -31,7 +31,8 @@
             "prefix": "ngx",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-console": "off"
       }
     },
     {

@@ -6,6 +6,15 @@ uses [ngx-mask](https://github.com/JsDaddy/ngx-mask) for the free input part.
 
 ## Installation
 
+Firt of all, you need to install:
+- [vanillajs-datepicker](https://www.npmjs.com/package/vanillajs-datepicker)
+  - `yarn add vanillajs-datepicker@^1.2.0` or `npm install --save vanillajs-datepicker@^1.2.0`
+- [ngx-mask](https://www.npmjs.com/package/ngx-mask)
+  - `yarn add ngx-mask@^14.0.3` or `npm install --save ngx-mask@^14.0.3`
+- [luxon](https://www.npmjs.com/package/luxon)
+  - `yarn add luxon@^3.0.1` or `npm install --save luxon@^3.0.1`
+
+Then you need to install the package:
 ```bash
 npm install --save @nolanroose/ngx-simple-datepicker
 ```
