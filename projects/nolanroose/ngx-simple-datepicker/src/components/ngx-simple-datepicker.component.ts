@@ -38,7 +38,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public placeholder?: string = '';
 
   @Input()
-  public formGlobalError = false;
+  public formGlobalError = false; // to handle the case in which the entire form is in error and apply a style accordingly
 
   @Input()
   public language = 'fr';
@@ -117,6 +117,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   }
 
   public openDatepicker(): void {
+    if (this.disabled) {
+      return;
+    }
     this.datepicker?.setDate(this.value);
     this.datepicker?.show();
   }
