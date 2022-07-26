@@ -1,27 +1,85 @@
 # NgxSimpleDatepicker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+NgxSimpleDatePicker is a custom FromControl with validation, which
+uses [vanillajs-datepicker](https://github.com/mymth/vanillajs-datepicker) for the selection by calendar part, and which
+uses [ngx-mask](https://github.com/JsDaddy/ngx-mask) for the free input part.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+npm install --save @nolanroose/ngx-simple-datepicker
+```
 
-## Code scaffolding
+or
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+yarn add @nolanroose/ngx-simple-datepicker
+```
 
-## Build
+Add to your main style file (`style.scss`):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```scss
+@import "~@nolanroose/ngx-simple-datepicker/assets/styles/default-theme";
+```
 
-## Running unit tests
+## Usage
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+in your component:
 
-## Running end-to-end tests
+```ts
+export class AppComponent implements OnInit {
+  public form!: FormGroup;
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  public ngOnInit(): void {
+    this.form = new FormGroup({
+      date: new FormControl('')
+    });
+  }
+}
+```
 
-## Further help
+in your template:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```html 
+<form [formGroup]="form">
+    <ngx-simple-datepicker
+      [form]="form"
+      [inputKey]="'date'"
+      [placeholder]="'test'"
+      [formGlobalError]="false"
+      [formControlName]="'date'"
+      [id]="'date'"
+    ></ngx-simple-datepicker>
+</form>
+```
+
+example with default theme:
+
+<img width="529" alt="example" src="https://user-images.githubusercontent.com/14938257/180854155-370c8a3e-e94d-4c5e-88b5-580853553af0.png">
+
+## Theming
+
+Copy the variable file from 
+`~@nolanroose/ngx-simple-datepicker/assets/styles/_variables.scss`
+
+Paste it into your custom variable themes (`custom-datepicker-theme.scss`), change the variables.
+
+Import the variable file before the import of default theme:
+```scss
+@import "custom-datepicker-theme.scss";
+@import "~@nolanroose/ngx-simple-datepicker/assets/styles/default-theme";
+```
+
+## Internationalization
+
+For the moment, the datepicker is only internationalized for the French language.
+
+## Roadmap
+
+- [ ] Add internationalization
+- [ ] Add tests
+- [ ] Add more documentation
+- [ ] Add configuration service
+- [ ] Add contributions guidelines
+- [ ] Add real ci cd pipeline
+

@@ -8,7 +8,21 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "build:lib": "ng build @nolanroose/ngx-simple-datepicker --configuration production"
+    "lint:lib": "yarn run lint-ts:lib && yarn run lint-html:lib",
+    "lint-ts:lib": "eslint \"projects/nolanroose/ngx-simple-datepicker/**/*.{js,ts}\" --max-warnings=0 --parser-options={tsconfigRootDir:projects/nolanroose/ngx-simple-datepicker}",
+    "lint-html:lib": "eslint \"projects/nolanroose/ngx-simple-datepicker/src/**/*.html\" --max-warnings=0 --parser-options={tsconfigRootDir:projects/nolanroose/ngx-simple-datepicker}",
+    "lint-ts-fix:lib": "yarn run lint:lib --fix",
+    "lint-html-fix:lib": "yarn run lint-html --fix",
+    "test:lib": "ng test @nolanroose/ngx-simple-datepicker --watch=false --progress=false --browsers=ChromeHeadlessCI",
+    "copy-files": "cp README.md dist/nolanroose/ngx-simple-datepicker/README.md && cp LICENSE dist/nolanroose/ngx-simple-datepicker/LICENSE",
+    "build:lib:dev": "ng build @nolanroose/ngx-simple-datepicker --watch --configuration development",
+    "build:lib:prod": "ng build @nolanroose/ngx-simple-datepicker --configuration production",
+    "ci:lib": "run-s lint:lib test:lib",
+    "package": "run-s build:lib:prod copy-files",
+    "prepack": "yarn run package",
+    "pack": "yarn pack ./dist/nolanroose/ngx-simple-datepicker/",
+    "prepublish:lib": "run-s ci:lib package",
+    "publish:lib": "yarn publish --access public ./dist/nolanroose/ngx-simple-datepicker"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +67,7 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^14.0.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
     "typescript": "~4.7.2"
   }

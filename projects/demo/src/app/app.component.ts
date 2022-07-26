@@ -7,8 +7,6 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public title = 'ngx-simple-datepicker';
-
   public form!: FormGroup;
 
   public ngOnInit(): void {

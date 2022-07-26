@@ -25,7 +25,7 @@ import {MaskPipe} from 'ngx-mask';
   encapsulation: ViewEncapsulation.None
 })
 export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Validator, AfterViewInit, OnDestroy {
-  private logger = Logger.get('DatePickerComponent', 'info');
+  private logger = Logger.get('NgxSimpleDatepickerComponent', 'info');
 
   @ViewChild('dpContainer')
   public dpContainer!: ElementRef;
