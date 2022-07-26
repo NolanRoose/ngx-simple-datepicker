@@ -74,6 +74,13 @@ Import the variable file before the import of default theme:
 
 For the moment, the datepicker is only internationalized for the French, English, Spanish languages.
 
+## Test locally
+
+- clone this repository
+- `yarn install`
+- `yarn run build:lib:dev`
+- `yarn run start`
+
 ## Roadmap
 
 - [ ] Add internationalization
