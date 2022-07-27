@@ -1,12 +1,23 @@
 import {DateTime} from 'luxon';
 
 export class DateHelper {
-  public static stringToDate(date: string): Date {
-    return DateTime.fromFormat(date, 'dd/MM/yyyy').toJSDate();
+  public static isoDateStringToJSDate(isoDate: string): Date {
+    return new Date(isoDate);
   }
 
-  public static formatDateToShortDate(date: Date): string {
-    return DateTime.fromJSDate(date).toFormat('dd/MM/yyyy');
+  public static jsDateToFormattedDate(date: Date): string {
+    const utc = DateHelper.jsDateToUtc(date);
+    const isoDate = new Date(utc).toISOString();
+    const dateTimeUtc = DateTime.fromISO(isoDate, {zone: 'utc'});
+    return dateTimeUtc.toFormat('dd/MM/yyyy');
+  }
+
+  public static jsDateToUtc(date: Date): number {
+    return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+  }
+
+  public static formattedDateToIsoDate(formattedDate: string): string {
+    return DateTime.fromFormat(formattedDate, 'dd/MM/yyyy').toISODate();
   }
 
   public static isValidDate(date: Date): boolean {

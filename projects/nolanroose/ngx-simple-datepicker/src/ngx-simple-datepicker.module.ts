@@ -9,9 +9,8 @@ import {FormHelper} from './helpers/form.helper';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
-  showTemplate: false,
-  showMaskTyped: true,
-  placeHolderCharacter: '_'
+  placeHolderCharacter: '_',
+  dropSpecialCharacters: true
 };
 
 @NgModule({
