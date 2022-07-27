@@ -43,14 +43,7 @@
             "code": 160
           }
         ],
-        "no-console": [
-          "error",
-          {
-            "allow": [
-              ""
-            ]
-          }
-        ],
+        "no-console": "off",
         "no-plusplus": "off",
         "@typescript-eslint/explicit-member-accessibility": [
           "error",
