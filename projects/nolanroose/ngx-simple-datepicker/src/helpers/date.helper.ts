@@ -2,18 +2,18 @@ import {DateTime} from 'luxon';
 
 export class DateHelper {
   public static isoDateStringToJSDate(isoDate: string): Date {
-    return new Date(isoDate);
+    if (!isoDate) {
+      return DateTime.invalid('Invalid date').toJSDate();
+    }
+    return DateTime.fromISO(isoDate).plus({hour: 1}).toJSDate();
   }
 
   public static jsDateToFormattedDate(date: Date): string {
-    const utc = DateHelper.jsDateToUtc(date);
-    const isoDate = new Date(utc).toISOString();
-    const dateTimeUtc = DateTime.fromISO(isoDate, {zone: 'utc'});
-    return dateTimeUtc.toFormat('dd/MM/yyyy');
+    return DateTime.fromJSDate(date).plus({hour: 1}).toFormat('dd/MM/yyyy');
   }
 
   public static jsDateToUtc(date: Date): number {
-    return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
   }
 
   public static formattedDateToIsoDate(formattedDate: string): string {

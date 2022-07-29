@@ -110,16 +110,6 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     this.displayedValue = date;
   }
 
-  public validate(control: AbstractControl): ValidationErrors | null {
-    const {value} = control;
-    if (!this.dateH.isValidDate(value)) {
-      return {
-        invalidDate: true
-      };
-    }
-    return null;
-  }
-
   public openDatepicker(): void {
     if (this.disabled) {
       return;
@@ -143,6 +133,16 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     }
 
     this.hasFocus = value;
+  }
+
+  public validate(control: AbstractControl): ValidationErrors | null {
+    const {value} = control;
+    if (!this.dateH.isValidDate(value)) {
+      return {
+        invalidDate: true
+      };
+    }
+    return null;
   }
 
   private markAsTouched() {
