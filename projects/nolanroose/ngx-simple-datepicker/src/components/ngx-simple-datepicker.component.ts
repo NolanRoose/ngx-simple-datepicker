@@ -116,14 +116,14 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     }
 
     if (this.value) {
-      this.datepicker?.setDate(this.dateH.jsDateToUtc(this.value));
+      this.datepicker?.setDate(this.dateH.jsDateToFormattedDate(this.value, this.datepicker?.config.format as string));
     }
 
     this.datepicker?.show();
   }
 
   public onDateChange(date: CustomEvent): void {
-    const dateString = this.dateH.jsDateToFormattedDate(date.detail.date);
+    const dateString = this.dateH.jsDateToFormattedDate(date.detail.date, this.datepicker?.config.format as string);
     this.onChange(dateString);
   }
 
@@ -165,7 +165,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         showOnFocus: false,
         language: this.language,
         orientation: 'bottom right',
-        format: 'dd/mm/yyyy',
+        format: 'dd/MM/yyyy',
         daysOfWeekHighlighted: [0, 6],
         todayHighlight: true,
         updateOnBlur: false,
