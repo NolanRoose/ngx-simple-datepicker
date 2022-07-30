@@ -9,6 +9,6 @@ export default {
     monthsTitle: 'Meses',
     clear: 'Borrar',
     weekStart: 1,
-    format: 'dd/mm/yyyy'
+    format: 'dd/MM/yyyy'
   }
 };
