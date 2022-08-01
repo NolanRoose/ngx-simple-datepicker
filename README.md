@@ -99,7 +99,7 @@ For the moment, the datepicker is only internationalized for the French, English
 ## Roadmap
 
 - [ ] Add internationalization
-- [ ] Add tests
+- [x] Add tests
 - [ ] Add more documentation
 - [ ] Add configuration service
 - [ ] Add contributions guidelines
