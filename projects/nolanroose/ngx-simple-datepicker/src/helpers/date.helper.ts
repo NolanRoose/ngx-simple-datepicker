@@ -8,8 +8,16 @@ export class DateHelper {
     return DateTime.fromISO(isoDate).toJSDate();
   }
 
+  public static isoDateStringToFormattedDate(isoDate: string, format?: string): string {
+    return DateTime.fromISO(isoDate).toFormat(format || 'dd/MM/yyyy');
+  }
+
   public static jsDateToFormattedDate(date: Date, format?: string): string {
     return DateTime.fromJSDate(date).toFormat(format || 'dd/MM/yyyy');
+  }
+
+  public static jsDateToIsoDate(date: Date): string {
+    return DateTime.fromJSDate(date).toISODate();
   }
 
   public static formattedDateToIsoDate(formattedDate: string): string {
@@ -18,5 +26,11 @@ export class DateHelper {
 
   public static isValidDate(date: Date): boolean {
     return DateTime.fromJSDate(date).isValid;
+  }
+
+  public static isoDatesHasDiff(currentIsoDate: string, newIsoDate: string): boolean {
+    const currentDate = DateTime.fromISO(currentIsoDate);
+    const nextDate = DateTime.fromISO(newIsoDate);
+    return !currentDate.hasSame(nextDate, 'day') || !currentDate.hasSame(nextDate, 'month') || !currentDate.hasSame(nextDate, 'year');
   }
 }
