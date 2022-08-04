@@ -149,7 +149,11 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     return null;
   }
 
-  private valueToDisplayedValue(value: Date): string | undefined {
+  private valueToDisplayedValue(value?: Date): string | undefined {
+    if (!value) {
+      return undefined;
+    }
+
     if (!this.dateH.isValidDate(value)) {
       return this.displayedValue;
     }
