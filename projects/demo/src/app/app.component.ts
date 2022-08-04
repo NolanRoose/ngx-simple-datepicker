@@ -11,7 +11,15 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form = new FormGroup({
-      date: new FormControl(new Date())
+      date: new FormControl()
     });
+  }
+
+  public reset(): void {
+    this.form.reset({date: new Date()}, {emitEvent: false});
+  }
+
+  public reset1(): void {
+    this.form.reset({date: undefined}, {emitEvent: false});
   }
 }
