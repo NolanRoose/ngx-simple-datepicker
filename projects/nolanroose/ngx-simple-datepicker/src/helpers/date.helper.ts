@@ -24,8 +24,8 @@ export class DateHelper {
     return DateTime.fromFormat(formattedDate, 'dd/MM/yyyy').toISODate();
   }
 
-  public static isValidDate(date: Date): boolean {
-    return DateTime.fromJSDate(date).isValid;
+  public static isValidDate(date?: Date): boolean {
+    return date ? DateTime.fromJSDate(date).isValid : false;
   }
 
   public static isoDatesHasDiff(currentIsoDate: string, newIsoDate: string): boolean {

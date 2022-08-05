@@ -10,6 +10,10 @@
     ></ngx-simple-datepicker>
   </form>
 
+  <form [formGroup]="form2">
+    <input type="text" [formControlName]="'test'" />
+  </form>
+
   <button (click)="reset()">reset</button>
   <button (click)="reset1()">reset1</button>
 </div>

@@ -8,10 +8,23 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   public form!: FormGroup;
+  public form2!: FormGroup;
 
   public ngOnInit(): void {
     this.form = new FormGroup({
       date: new FormControl()
+    });
+
+    this.form2 = new FormGroup({
+      test: new FormControl()
+    });
+
+    this.form.valueChanges.subscribe(() => {
+      this.form2.reset({}, {emitEvent: false});
+    });
+
+    this.form2.valueChanges.subscribe(() => {
+      this.form.reset({}, {emitEvent: false});
     });
   }
 
