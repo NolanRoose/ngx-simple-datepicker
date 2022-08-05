@@ -52,7 +52,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public touched = false;
   private maskFilled = false;
 
-  public onChange!: (date: Date) => void;
+  public onChange!: (date?: Date) => void;
   public onTouched!: () => void;
 
   public dateH = DateHelper;
@@ -83,21 +83,13 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   }
 
   public registerOnChange(fn: (date?: Date) => void): void {
-    this.onChange = (newDate: Date) => {
+    this.onChange = (newDate?: Date) => {
       this.writeValue(newDate);
       fn(this.value);
     };
   }
 
-  public registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
-  public setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-
-  public writeValue(date: Date): void {
+  public writeValue(date?: Date): void {
     this.value = date;
     this.displayedValue = this.valueToDisplayedValue(date);
   }
@@ -107,28 +99,32 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     this.maskFilled = this.maskRegex.test(value);
     const isoDate = this.maskFilled ? this.dateH.formattedDateToIsoDate(value) : 'Invalid date';
 
-    if (!this.value || this.dateH.isoDatesHasDiff(this.dateH.jsDateToIsoDate(this.value), isoDate)) {
-      this.onChange(this.dateH.isoDateStringToJSDate(isoDate));
-    }
-  }
-
-  public openDatepicker(): void {
-    if (this.disabled) {
-      return;
-    }
-
-    if (this.value) {
-      this.datepicker?.setDate(this.dateH.jsDateToFormattedDate(this.value, this.datepicker?.config.format as string));
-    }
-
-    this.datepicker?.show();
+    this.triggerChangeIfIsNecessary(isoDate);
   }
 
   public onDateChange(event: CustomEvent): void {
-    const isoDate = this.dateH.jsDateToIsoDate(event.detail.date);
-    if (!this.value || this.dateH.isoDatesHasDiff(this.dateH.jsDateToIsoDate(this.value), isoDate)) {
-      this.onChange(this.dateH.isoDateStringToJSDate(isoDate));
+    if (!event.detail || !event.detail.date) {
+      return;
     }
+    const isoDate = this.dateH.jsDateToIsoDate(event.detail.date);
+
+    this.triggerChangeIfIsNecessary(isoDate);
+  }
+
+  public openDatepicker(): void {
+    if (this.disabled || !this.datepicker) {
+      return;
+    }
+
+    if (this.value && this.dateH.isValidDate(this.value)) {
+      this.datepicker.setDate(this.dateH.jsDateToFormattedDate(this.value, this.datepicker.config.format as string));
+      this.datepicker.update();
+    } else {
+      this.datepicker.setDate({clear: true});
+      this.datepicker.update();
+    }
+
+    this.datepicker.show();
   }
 
   public onFocus(value: boolean): void {
@@ -139,14 +135,28 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     this.hasFocus = value;
   }
 
+  public registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
   public validate(control: AbstractControl): ValidationErrors | null {
     const {value} = control;
-    if (!this.dateH.isValidDate(value)) {
+    if ((control.dirty || control.touched) && value && !this.dateH.isValidDate(value)) {
       return {
         invalidDate: true
       };
     }
     return null;
+  }
+
+  private triggerChangeIfIsNecessary(newIsoDate: string) {
+    if (!this.value || this.dateH.isoDatesHasDiff(this.dateH.jsDateToIsoDate(this.value), newIsoDate)) {
+      this.onChange(this.dateH.isoDateStringToJSDate(newIsoDate));
+    }
   }
 
   private valueToDisplayedValue(value?: Date): string | undefined {

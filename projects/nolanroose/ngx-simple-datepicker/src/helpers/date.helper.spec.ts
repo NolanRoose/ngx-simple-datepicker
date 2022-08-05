@@ -44,8 +44,10 @@ describe('DateHelper', () => {
 
   it('isValidDate should be return correct boolean', () => {
     const date = new Date(2022, 6, 30, 0, 0, 0, 0);
-    const isValid = DateHelper.isValidDate(date);
+    let isValid = DateHelper.isValidDate(date);
     expect(isValid).toBe(true);
+    isValid = DateHelper.isValidDate(undefined);
+    expect(isValid).toBe(false);
   });
 
   it('isoDatesHasDiff should be return correct boolean', () => {
