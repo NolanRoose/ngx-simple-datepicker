@@ -59,6 +59,8 @@
 
     z-index: $dpi-z-index;
 
+    background-color: inherit;
+
     &:focus-visible, &:focus {
       border: none !important;
       outline: none !important;
@@ -96,6 +98,20 @@
       width: 100%;
       height: 100%;
       visibility: hidden;
+    }
+  }
+
+  &.disabled {
+    background-color: $dpi-disabled-input-background-color;
+
+    .datepicker-input-text {
+      color: $dpi-disabled-input-font-color;
+    }
+
+    .datepicker-open-button {
+      color: $dpi-disabled-input-font-color;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }
