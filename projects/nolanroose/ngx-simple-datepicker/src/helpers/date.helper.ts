@@ -13,11 +13,13 @@ export class DateHelper {
   }
 
   public static jsDateToFormattedDate(date: Date, format?: string): string {
-    return DateTime.fromJSDate(date).toFormat(format || 'dd/MM/yyyy');
+    return DateTime.fromJSDate(date)
+      .setZone('Europe/Berlin')
+      .toFormat(format || 'dd/MM/yyyy');
   }
 
   public static jsDateToIsoDate(date: Date): string {
-    return DateTime.fromJSDate(date).toISODate();
+    return DateTime.fromJSDate(date).setZone('Europe/Berlin').toISODate();
   }
 
   public static formattedDateToIsoDate(formattedDate: string): string {

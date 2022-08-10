@@ -25,15 +25,15 @@ describe('DateHelper', () => {
   });
 
   it('jsDateToFormattedDate should be return correct formatted date', () => {
-    const date = new Date(2022, 6, 30, 0, 0, 0, 0);
+    const date = new Date(1111, 6, 30, 0, 0, 0, 0);
     const formattedDate = DateHelper.jsDateToFormattedDate(date);
-    expect(formattedDate).toBe('30/07/2022');
+    expect(formattedDate).toBe('30/07/1111');
   });
 
   it('jsDateToIsoDate should be return correct iso date', () => {
-    const date = new Date(2022, 6, 30, 0, 0, 0, 0);
+    const date = new Date(1111, 6, 30, 0, 0, 0, 0);
     const isoDate = DateHelper.jsDateToIsoDate(date);
-    expect(isoDate).toBe('2022-07-30');
+    expect(isoDate).toBe('1111-07-30');
   });
 
   it('formattedDateToIsoDate should be return correct iso date', () => {

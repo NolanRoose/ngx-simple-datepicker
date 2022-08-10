@@ -5,6 +5,7 @@ import {DateHelper} from '../helpers/date.helper';
 import {FormHelper} from '../helpers/form.helper';
 import fr from '../locale/fr';
 import es from '../locale/es';
+import {Settings} from 'luxon';
 
 @Component({
   selector: 'ngx-simple-datepicker',
@@ -62,6 +63,10 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
   constructor() {
     Object.assign(Datepicker.locales, fr, es);
+
+    // Set the zone to use another than French zone
+    // Because => https://github.com/microsoft/TypeScript/issues/32265#issuecomment-509275445
+    Settings.defaultZone = 'Europe/Berlin';
   }
 
   public ngAfterViewInit(): void {
