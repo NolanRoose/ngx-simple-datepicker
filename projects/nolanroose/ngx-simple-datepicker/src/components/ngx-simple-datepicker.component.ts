@@ -45,7 +45,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public datepicker?: Datepicker;
 
   public value?: Date;
-  public displayedValue?: string;
+  public displayedValue = '';
 
   public hasFocus = false;
   public disabled = false;
@@ -104,11 +104,13 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
   public inputEvent(event: any): void {
     const {value} = event.target;
-    this.maskFilled = this.maskRegex.test(value);
-    const isoDate = this.maskFilled ? this.dateH.formattedDateToIsoDate(value) : 'Invalid date';
+    if (value) {
+      this.maskFilled = this.maskRegex.test(value);
+      const isoDate = this.maskFilled ? this.dateH.formattedDateToIsoDate(value) : 'Invalid date';
 
-    if (!this.value || this.dateH.isoDatesHasDiff(this.dateH.jsDateToIsoDate(this.value), isoDate)) {
-      this.onChange(this.dateH.isoDateStringToJSDate(isoDate));
+      if (!this.value || this.dateH.isoDatesHasDiff(this.dateH.jsDateToIsoDate(this.value), isoDate)) {
+        this.onChange(this.dateH.isoDateStringToJSDate(isoDate));
+      }
     }
   }
 
@@ -156,9 +158,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
     return null;
   }
 
-  private valueToDisplayedValue(value?: Date): string | undefined {
+  private valueToDisplayedValue(value?: Date): string {
     if (!value) {
-      return undefined;
+      return '';
     }
 
     if (!this.dateH.isValidDate(value)) {
