@@ -5,7 +5,7 @@
     type="text"
     [mask]="mask"
     [showMaskTyped]="hasFocus"
-    [ngModel]="displayedValue"
+    [(ngModel)]="displayedValue"
     [placeholder]="placeholder"
     (input)="inputEvent($event)"
     (focusin)="onFocus(true)"

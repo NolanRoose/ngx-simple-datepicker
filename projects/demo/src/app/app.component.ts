@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     });
 
     this.form2.valueChanges.subscribe(() => {
-      this.form.reset({}, {emitEvent: false});
+      this.form.reset({date: undefined}, {emitEvent: false});
     });
   }
 
