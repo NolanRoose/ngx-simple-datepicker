@@ -94,9 +94,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
     const date = this.maskPipe.transform(dateStr, this.mask);
     const dateIso = this.maskRegex.test(date) ? this.dateH.formattedDateToIsoDate(date) : 'Invalid date';
-    const currentDateIso = this.dateH.formattedDateToIsoDate(this.displayedValue);
+    const currentDateIso = this.value ? this.dateH.jsDateToIsoDate(this.value) : 'Invalid date';
 
-    if (!this.displayedValue || this.dateH.isoDatesHasDiff(currentDateIso, dateIso)) {
+    if (this.dateH.isoDatesHasDiff(currentDateIso, dateIso)) {
       this.markAsTouched();
       this.value = this.dateH.isoDateStringToJSDate(dateIso);
       this.onChange(this.value);
