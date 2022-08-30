@@ -89,6 +89,11 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
   public onModelChange(dateStr: string) {
     if (!dateStr) {
+      if (this.value) {
+        this.value = undefined;
+        this.markAsTouched();
+        this.onChange(this.value);
+      }
       return;
     }
 
