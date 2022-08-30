@@ -1,7 +1,7 @@
 import {DateTime} from 'luxon';
 
 export class DateHelper {
-  public static isoDateStringToJSDate(isoDate: string): Date {
+  public static isoDateStringToJSDate(isoDate?: string): Date {
     if (!isoDate) {
       return DateTime.invalid('Invalid date').toJSDate();
     }
