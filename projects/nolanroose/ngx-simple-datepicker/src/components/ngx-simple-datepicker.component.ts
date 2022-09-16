@@ -202,7 +202,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         showOnClick: false,
         showOnFocus: false,
         language: this.language,
-        orientation: 'bottom right',
+        orientation: 'auto right',
         format: 'dd/MM/yyyy',
         daysOfWeekHighlighted: [0, 6],
         todayHighlight: true,
