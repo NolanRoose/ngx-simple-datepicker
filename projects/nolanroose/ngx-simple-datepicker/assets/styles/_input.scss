@@ -92,9 +92,8 @@
     margin-inline: $dpi-input-padding-inline;
     margin-block: $dpi-input-padding-block;
 
-    z-index: $dpi-z-index - 1;
-
     .datepicker-input {
+      z-index: $dpi-z-index + 1;
       width: 100%;
       height: 100%;
       visibility: hidden;
