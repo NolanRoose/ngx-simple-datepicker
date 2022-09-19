@@ -44,6 +44,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   @Input()
   public language = 'fr';
 
+  @Input()
+  public verticalPosition?: 'top' | 'bottom';
+
   public datepicker?: Datepicker;
 
   public value?: Date;
@@ -202,13 +205,14 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         showOnClick: false,
         showOnFocus: false,
         language: this.language,
-        orientation: 'auto right',
+        orientation: this.verticalPosition ? `${this.verticalPosition} right` : 'auto right',
         format: 'dd/MM/yyyy',
         daysOfWeekHighlighted: [0, 6],
         todayHighlight: true,
         updateOnBlur: false,
         nextArrow: '<i class="ngx-sdp ngx-sdp-angle-right"></i>',
-        prevArrow: '<i class="ngx-sdp ngx-sdp-angle-left"></i>'
+        prevArrow: '<i class="ngx-sdp ngx-sdp-angle-left"></i>',
+        container: this.dpContainer.nativeElement
       });
     } catch (e) {
       console.error('Error: ', e);

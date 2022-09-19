@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../../../dist/nolanroose/ngx-simple-datepicker/assets/styles/default-theme";
+
+html, body, main, section, app-root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
