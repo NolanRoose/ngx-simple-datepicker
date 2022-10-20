@@ -11,8 +11,10 @@
   "allowedNonPeerDependencies": [
     "loglevel",
     "luxon",
-    "ngx-mask",
-    "vanillajs-datepicker"
+    "vanillajs-datepicker",
+    "angular2-text-mask",
+    "text-mask-core",
+    "text-mask-addons"
   ],
   "assets": [
     "./assets/**/*"

@@ -2,13 +2,15 @@
   "name": "@nolanroose/ngx-simple-datepicker",
   "author": "Nolan Roose",
   "description": "Very simple datepicker for Angular 14+, using vannillajs-datepicker.",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
+    "angular2-text-mask": "^9.0.0",
     "luxon": "^3.0.1",
     "ngx-mask": "^14.0.3",
+    "text-mask-addons": "^3.8.0",
     "vanillajs-datepicker": "^1.2.0"
   },
   "exports": {

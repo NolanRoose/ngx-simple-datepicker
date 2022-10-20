@@ -73,7 +73,12 @@
             "styles": [
               "projects/demo/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "angular2-text-mask",
+              "text-mask-core",
+              "text-mask-addons"
+            ]
           },
           "configurations": {
             "production": {

@@ -2134,6 +2134,13 @@ ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+angular2-text-mask@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/angular2-text-mask/-/angular2-text-mask-9.0.0.tgz#70490170a8096241fc3ce9482ed6a758ddbce8ea"
+  integrity sha512-iALcnhJPS1zvX48d86rgUgDe/crX6XfhZrXC4Gdlo2/YwZW7u7KJZY6/b3ieSCIWVq/E6p+wDCzeo3E6leRjDA==
+  dependencies:
+    text-mask-core "^5.0.0"
+
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -5410,13 +5417,6 @@ ng-packagr@^14.0.0:
   optionalDependencies:
     esbuild "^0.14.29"
 
-ngx-mask@^14.0.3:
-  version "14.0.3"
-  resolved "https://registry.yarnpkg.com/ngx-mask/-/ngx-mask-14.0.3.tgz#8900b6fd4a5f6c632074535fa8e92f4a52269322"
-  integrity sha512-qhB1l+Inr4Ovy9wXcpCq8+FmOilJE1Bg7U5Aenl7PCG88GjTKCe1f8YivjKGAAwP3UlLFqijy2iaND92JsOJyA==
-  dependencies:
-    tslib "^2.3.0"
-
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"
@@ -7274,6 +7274,16 @@ test-exclude@^6.0.0:
     "@istanbuljs/schema" "^0.1.2"
     glob "^7.1.4"
     minimatch "^3.0.4"
+
+text-mask-addons@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/text-mask-addons/-/text-mask-addons-3.8.0.tgz#17b61ef665a4f36811f2ea1f01a223b4be61ab26"
+  integrity sha512-VSZSdc/tKn4zGxgpJ+uNBzoW1t472AoAFIlbw1K7hSNXz0DfSBYDJNRxLqgxOfWw1BY2z6DQpm7g0sYZn5qLpg==
+
+text-mask-core@^5.0.0:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/text-mask-core/-/text-mask-core-5.1.2.tgz#80dd5ebe04825757e46619e691407a9f8b3c1b6f"
+  integrity sha512-VfkCMdmRRZqXgQZFlDMiavm3hzsMzBM23CxHZsaeAYg66ZhXCNJWrFmnJwNy8KF9f74YvAUAuQenxsMCfuvhUw==
 
 text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"

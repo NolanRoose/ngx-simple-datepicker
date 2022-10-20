@@ -6,7 +6,7 @@ import {FormHelper} from '../helpers/form.helper';
 import fr from '../locale/fr';
 import es from '../locale/es';
 import {Settings} from 'luxon';
-import {MaskPipe} from 'ngx-mask';
+import {createAutoCorrectedDatePipe} from 'text-mask-addons';
 
 @Component({
   selector: 'ngx-simple-datepicker',
@@ -61,10 +61,11 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
 
   public dateH = DateHelper;
   public formH = FormHelper;
-  public mask = 'd0/M0/0000';
+  public mask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  public autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy');
   private maskRegex = new RegExp('[0-9]{2}/[0-9]{2}/[0-9]{4}');
 
-  constructor(private readonly maskPipe: MaskPipe) {
+  constructor() {
     Object.assign(Datepicker.locales, fr, es);
 
     // Set the zone to use another than French zone
@@ -100,8 +101,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
       return;
     }
 
-    const date = this.maskPipe.transform(dateStr, this.mask);
-    const dateIso = this.maskRegex.test(date) ? this.dateH.formattedDateToIsoDate(date) : 'Invalid date';
+    const dateIso = this.maskRegex.test(dateStr) ? this.dateH.formattedDateToIsoDate(dateStr) : 'Invalid date';
     const currentDateIso = this.value ? this.dateH.jsDateToIsoDate(this.value) : 'Invalid date';
 
     if (this.dateH.isoDatesHasDiff(currentDateIso, dateIso)) {
