@@ -2,7 +2,8 @@
 
 NgxSimpleDatePicker is a custom FormControl with validation, which
 uses [vanillajs-datepicker](https://github.com/mymth/vanillajs-datepicker) for the selection by calendar part, and which
-uses [ngx-mask](https://github.com/JsDaddy/ngx-mask) for the free input part.
+uses [angular2-text-mask](https://github.com/text-mask/text-mask/tree/master/angular2) for the free input part,
+witch [text-mask-addons](https://github.com/text-mask/text-mask/tree/master/addons)
 
 ## Installation
 
@@ -10,14 +11,16 @@ uses [ngx-mask](https://github.com/JsDaddy/ngx-mask) for the free input part.
 - [vanillajs-datepicker](https://www.npmjs.com/package/vanillajs-datepicker)
   - `yarn add vanillajs-datepicker@^1.2.0` or `npm install --save vanillajs-datepicker@^1.2.0`
   - `yarn add -D @types/vanillajs-datepicker@^1.2.1`
-- [ngx-mask](https://www.npmjs.com/package/ngx-mask)
-  - `yarn add ngx-mask@^14.0.3` or `npm install --save ngx-mask@^14.0.3`
+- [angular2-text-mask](https://www.npmjs.com/package/angular2-text-mask)
+  - `yarn add angular2-text-mask@^9.0.0` or `npm install --save angular2-text-mask@^9.0.0`
+- [text-mask-addons](https://www.npmjs.com/package/text-mask-addons)
+  - `yarn add text-mask-addons@^3.8.0` or `npm install --save text-mask-addons@^3.8.0`
 - [luxon](https://www.npmjs.com/package/luxon)
   - `yarn add luxon@^3.0.1` or `npm install --save luxon@^3.0.1`
   - `yarn add -D @types/luxon@^3.0.0`
 
 Or in one time:
-- `yarn add vanillajs-datepicker@^1.2.0 ngx-mask@^14.0.3 luxon@^3.0.1`
+- `yarn add vanillajs-datepicker@^1.2.0 angular2-text-mask@^9.0.0 text-mask-addons@^3.8.0 luxon@^3.0.1`
 - `yarn add -D @types/vanillajs-datepicker@^1.2.1 @types/luxon@^3.0.0`
 
 2. Then you need to install the package:
