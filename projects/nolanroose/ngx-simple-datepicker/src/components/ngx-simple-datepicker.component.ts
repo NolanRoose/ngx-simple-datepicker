@@ -62,7 +62,7 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   public dateH = DateHelper;
   public formH = FormHelper;
   public mask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
-  public autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy');
+  public autoCorrectedDatePipe = createAutoCorrectedDatePipe('dd/mm/yyyy');
   private maskRegex = new RegExp('[0-9]{2}/[0-9]{2}/[0-9]{4}');
 
   constructor() {
