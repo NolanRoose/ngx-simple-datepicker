@@ -4,11 +4,11 @@
   "description": "Very simple datepicker for Angular 14+, using vannillajs-datepicker.",
   "version": "1.2.2",
   "peerDependencies": {
-    "@angular/common": "^14.0.0",
-    "@angular/core": "^14.0.0",
-    "@angular/forms": "^14.0.0",
+    "@angular/common": "^15.0.4",
+    "@angular/core": "^15.0.4",
+    "@angular/forms": "^15.0.4",
     "angular2-text-mask": "^9.0.0",
-    "luxon": "^3.0.1",
+    "luxon": "^3.2.1",
     "text-mask-addons": "^3.8.0",
     "vanillajs-datepicker": "^1.2.0"
   },
