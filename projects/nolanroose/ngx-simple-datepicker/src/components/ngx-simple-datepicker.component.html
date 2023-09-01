@@ -4,7 +4,7 @@
     class="datepicker-input-text"
     type="text"
     [textMask]="{ mask: mask, keepCharPositions: true, guide: true, pipe: autoCorrectedDatePipe }"
-    [ngModel]="displayedValue"
+    [(ngModel)]="displayedValue"
     (ngModelChange)="onModelChange($event)"
     [placeholder]="placeholder"
     (focusin)="onFocus(true)"

@@ -16,8 +16,8 @@ witch [text-mask-addons](https://github.com/text-mask/text-mask/tree/master/addo
 - [text-mask-addons](https://www.npmjs.com/package/text-mask-addons)
   - `yarn add text-mask-addons@^3.8.0` or `npm install --save text-mask-addons@^3.8.0`
 - [luxon](https://www.npmjs.com/package/luxon)
-  - `yarn add luxon@^3.0.1` or `npm install --save luxon@^3.0.1`
-  - `yarn add -D @types/luxon@^3.0.0`
+  - `yarn add luxon@^3.2.1` or `npm install --save luxon@^3.2.1`
+  - `yarn add -D @types/luxon@^3.2.1`
 
 Or in one time:
 - `yarn add vanillajs-datepicker@^1.2.0 angular2-text-mask@^9.0.0 text-mask-addons@^3.8.0 luxon@^3.0.1`
