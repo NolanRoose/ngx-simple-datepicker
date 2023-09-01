@@ -47,6 +47,12 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
   @Input()
   public verticalPosition?: 'top' | 'bottom';
 
+  @Input()
+  public notInFuture = false;
+
+  @Input()
+  public notInPast = false;
+
   public datepicker?: Datepicker;
 
   public value?: Date;
@@ -212,7 +218,9 @@ export class NgxSimpleDatepickerComponent implements ControlValueAccessor, Valid
         updateOnBlur: false,
         nextArrow: '<i class="ngx-sdp ngx-sdp-angle-right"></i>',
         prevArrow: '<i class="ngx-sdp ngx-sdp-angle-left"></i>',
-        container: this.dpContainer.nativeElement
+        container: this.dpContainer.nativeElement,
+        minDate: this.notInPast ? new Date() : undefined,
+        maxDate: this.notInFuture ? new Date() : undefined
       });
     } catch (e) {
       console.error('Error: ', e);
